@@ -1,6 +1,6 @@
 from django.shortcuts import render
-
+from .models import Job
 
 def home(request):
-    # will be looking for it inside the templates directory/modelname
-    return render(request, 'jobs/home.html')
+    jobs = Job.objects
+    return render(request, 'jobs/home.html', {'jobs': jobs})
